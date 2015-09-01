@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div></div>
+	<div id="ut">
+		<ul>
+			<li class="item1"><span name="myspan">title</span></li>
+			<li class="item2"><span>title</span></li>
+			<li class="item3"><span>title</span></li>
+			<li class="item4"><span>title</span></li>
+			<li class="item5"><span>title</span></li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		var walk_the_DOM = function walk(node, func) {
+			func(node);
+			node = node.firstChild;
+			while(node) {
+				walk(node, func);
+				node = node.nextSibling;
+			}
+		} 
+		//根据attribute获取dom
+		document.getElementsByAttribute = function (attr, value) {
+			var result = [];
+
+			walk_the_DOM(document.body, function (node) {
+				var actual = node.nodeType === 1 && node.getAttribute(attr);
+				if(typeof actual === 'string' &&
+					(actual === value || typeof value !== 'string')) {
+					result.push(node);
+				}
+			});
+
+			return result;
+		}
+		var span = document.getElementsByAttribute('name', 'myspan');
+		console.log(span);
+	</script>
+</body>
+</html>
