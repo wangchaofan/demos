@@ -1,0 +1,1 @@
+{"version":3,"sources":["../ec6/01.js"],"names":[],"mappings":";;AAAA,OAAO,CAAC,GAAG,CAAC,CAAC,CAAC,EAAC,CAAC,EAAC,CAAC,CAAC,CAAC,GAAG,CAAC,UAAA,CAAC;SAAI,CAAC,GAAC,CAAC;CAAA,CAAE,CAAC,CAAC","file":"01.js","sourcesContent":["console.log([1,2,3].map(x => x*x ));"]}
