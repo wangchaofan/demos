@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8">
+  	<title>Hello test</title>
+  	<link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.19.0.css">
+</head>
+<body>
+  	<div id="qunit"></div>
+  	<div id="qunit-fixture"></div>
+  	<script type="text/javascript" src="../common.js"></script>
+  	<script src="http://code.jquery.com/qunit/qunit-1.19.0.js"></script>
+  	<script type="text/javascript">
+  		function add() {
+  			var args = arguments;
+  			var sum = 0;
+  			for(var i = 0; i<args.length;i++) {
+  				sum+=args[i];
+  			}
+  			return sum;
+  		}
+  		var add2 = add.curry(2);
+  		QUnit.test( "curry test", function( assert ) {
+  			assert.equal(add2(6), 7, 'Test Success');
+		});
+  	</script>
+</body>
+</html>
