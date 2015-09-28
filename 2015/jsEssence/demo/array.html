@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8">
+  	<title>Hello test</title>
+  	<link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.19.0.css">
+</head>
+<body>
+  	<div id="qunit"></div>
+  	<div id="qunit-fixture"></div>
+  	<script type="text/javascript" src="../common.js"></script>
+  	<script src="http://code.jquery.com/qunit/qunit-1.19.0.js"></script>
+  	<script type="text/javascript">
+  		var a = ['a','b','c'];
+  		var b = ['x','y','z'];
+  		var c = a.push(b);
+  		QUnit.test( "push test", function( assert ) {
+  			assert.equal(c, 4, 'Test Success');
+		});
+  	</script>
+</body>
+</html>

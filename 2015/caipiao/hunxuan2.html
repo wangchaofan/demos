@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<input id="input" type="text">
+	<div id="div" style="width: 400px;overflow: hidden;wo"></div>
+	<script type="text/javascript">
+		var div = document.getElementById('div');
+		var n = 5;
+		var arr = [];
+		for(var i = 0; i < 10; i++) {
+			for(var j = 0; j < 10; j++) {
+				if(i == j && j === n) {
+					continue;
+				}
+				arr.push(i + '' + j + n);
+			}
+		}
+		console.log(arr.join(' '));
+	</script>
+</body>
+</html>

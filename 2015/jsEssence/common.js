@@ -35,6 +35,20 @@ Function.method('inherits', function(Parent) {
 	this.prototype = new Parent();
 	return this;
 });
+
+/**
+ *  处理父类
+ * @param  {[string]} name) {	var        that [description]
+ * @return {[Function]}       [description]
+ */
+Object.method('superior', function(name) {
+	var that = this,
+		method = that[name];
+	return function() {
+		return method.apply(that, arguments);
+	};
+});
+
 /**
  * 数字取整
  * @for Number
@@ -76,3 +90,62 @@ String.method('deentityify', function() {
 		);
 	};
 }());
+
+/**
+ * 快速生成一个数组
+ * @for Array
+ * @param  {[number]} dimension [维度]
+ * @param  {[number,string]} initial   [值]
+ * @return {[Array]}           [返回生成的数组]
+ */
+Array.dim = function(dimension, initial) {
+	var a = [],
+		i;
+	for (i = 0; i < dimension; i++) {
+		a[i] = initial;
+	}
+	return a;
+};
+
+/**
+ * 创建多维数组
+ * @param  {[int]} m       [一维]
+ * @param  {[int]} n       [二维]
+ * @param  {[number,string]} initial [值]
+ * @return {[Array]}         [返回数组]
+ */
+Array.matrix = function(m, n, initial) {
+	var a, i, j, mat = [];
+	for (i = 0; i < m; i++) {
+		a = [];
+		for (j = 0; j < n; j++) {
+			a[j] = initial;
+		}
+		mat[i] = a;
+	}
+	return mat;
+};
+
+/**
+ * 数组push实现
+ * @param  {[all type]} ) [添加的元素]
+ * @return {[int]}   [数组长度]
+ */
+Array.method('push', function() {
+	this.splice.apply(
+		this, [this.length, 0].concat(Array.prototype.slice.apply(arguments)));
+	return this.length;
+});
+
+/**
+ * 判断是否为数组
+ * @param  {[object]}  value 
+ * @return {Boolean}  
+ */
+function is_array(value) {
+	return value &&
+		typeof value === 'object' &&
+		typeof value.length === 'number' &&
+		typeof value.splice === 'function' &&
+		!(value.prototypeIsEnumberable('length'));
+}
