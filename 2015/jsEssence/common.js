@@ -149,3 +149,13 @@ function is_array(value) {
 		typeof value.splice === 'function' &&
 		!(value.prototypeIsEnumberable('length'));
 }
+
+/**
+ * 判断是否为数字
+ * @param  {[type]}  value 
+ * @return {Boolean}       
+ */
+function isNumber(value) {
+	return typeof value === 'number' &&
+		isFinite(value);
+}
