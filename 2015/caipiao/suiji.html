@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function GetRandomNum(Min,Max) {   
+			var Range = Max - Min;   
+			var Rand = Math.random();   
+			return(Min + Math.round(Rand * Range));   
+		} 
+		var arr = [], result = [], i, j, index;
+		for(i = 0; i < 10; i++) {
+			for(j = 0; j < 10; j++) {
+				arr.push(i + '' + j);
+			}
+		}
+
+		for(i = 0; i < 56; i++) {
+			index = GetRandomNum(0, arr.length - 1);
+			result.push(arr.splice(index,1));
+		}
+
+		console.log(result.sort().join(','));
+	</script>
+</body>
+</html>

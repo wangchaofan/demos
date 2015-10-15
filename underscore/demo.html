@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="underscore.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		var arr = [1,2,3];
+		var re;
+		// _.each(arr, function(ele, index) {
+		// 	console.log(this);
+		// 	console.log(this.id + ele);
+		// }, {id: 'my'});
+	
+		// var re = _.map(arr, function(value, index) {
+		// 	return value * value;
+		// });
+		
+		// re = _.reduce(arr, function(memo, num) {
+		// 	return memo+num;
+		// }, 4);
+		debugger; 
+		re = _.find(arr, function(num) {
+			return num > 1;
+		});
+		console.log(re);
+	</script>
+</body>
+</html>
