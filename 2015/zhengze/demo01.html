@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo01</title>
+</head>
+<body>
+	<input id="username" type="text">
+	<button id="btn">验证</button>
+	<script type="text/javascript">
+		/*
+		var btn = document.getElementById('btn');
+		btn.onclick = yanzheng1;
+		function yanzheng1() {
+			var username = document.getElementById('username').value;
+			//验证1
+			if(username.length <5 || username.length > 16) {
+				alert('用户名不正确');
+			}
+		} */
+
+		function RegExpTest(){ 
+			var src="http://sumsung753.blog.163.com/blog/I love you!"; 
+			var re = /(l)[ov]/g; // 注意g将全文匹配，不加将永远只返回第一个匹配。 
+			var arr; 
+			console.log("exec:");
+			while((arr = re.exec(src)) !=null){ //exec使arr返回匹配的第一个，while循环一次将使re在g作用寻找下一个匹配。 
+				console.log(arr);
+			} 
+			console.log("match:\n", src.match(re));
+			console.log("test:\n", re.test(src));
+			console.log("replace:\n", src.replace(re, 'ca'));
+		} 
+		RegExpTest();
+	</script>
+</body>
+</html>

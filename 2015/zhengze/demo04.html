@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input id="username" type="text">
+	<button id="btn">验证</button>
+	<script type="text/javascript">
+		var btn = document.getElementById('btn');
+		btn.onclick = yanzheng;
+		function yanzheng() {
+			var username = document.getElementById('username').value;
+			var re = /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[^\w]).{5,18}$/;
+			//验证1
+			if(re.test(username)) {
+				console.log('验证通过');
+			} else {
+				console.log('验证失败');
+			}
+		}
+	</script>
+</body>
+</html>

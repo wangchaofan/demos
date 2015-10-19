@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function f2c(s) { 
+			var test = /([\d]{4})-([\d]{1,2})-([\d]{1,2})/; 
+			return(s.replace(test, 
+				function($0,$1,$2,$3) { 
+					console.log(11);
+						console.log($0, $1, $2, $3);
+						return($2 +"/" + $1); 
+					} 
+				) 
+			); 
+		} 
+		document.write(f2c("today: 2011=03=29"));
+	</script>
+</body>
+</html>
