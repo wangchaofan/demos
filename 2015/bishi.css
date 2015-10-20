@@ -1,0 +1,46 @@
+body {
+	margin: 0;
+	font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+	color: #333;
+	background: #eee;
+}
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+.wrap {
+	margin: 0 auto;
+	padding: 0 16px;
+
+	width: 1000px;
+	background: #fff;
+	overflow: hidden;
+	box-shadow: 0 0 6px #999;
+	border: 1px solid #e6e6e6;
+}
+.head {
+	margin: 10px 0;
+	font-size: 32px;
+	color: #333;
+	font-weight: 700;
+	text-align: center;
+}
+.interviewer-info span {
+	display: inline-block;
+}
+.interviewer-info label {
+	font-size: 14px;
+}
+.interviewer-info input {
+	background: none;
+	font-size: 14px;
+	border: none;
+	border-bottom: 1px solid #333;
+}
+.interviewer-info input {
+	width: 100px;
+}
+.interviewer-info .score {
+	float: right;
+}

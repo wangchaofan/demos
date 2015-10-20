@@ -1,50 +1,176 @@
 聚美优品Web前端笔试题
 
-姓名：____________    
-1.你如何对网站的文件和资源进行优化
+姓名：____________                    						           分数：_________ 
+
+1.请描述一下session,sessionStorage,localStorage的区别 
 
 
 
 
 
-2.transform、transition 和 animation的作用以及它们的区别              
+2.跨域请求有哪些方法
 
 
 
-3.请描述一下session,sessionStorage,localStorage的区别       
+
+
+
+3.transform、transition 和 animation的作用以及它们的区别              
+
+
+   
                           
 
-
-
-4.请描述一下什么是闭包及闭包的主要作用
-
-
-
-
-5.请列举http请求的几种状态码及其意义
-
-
-
-6.常见的css hack
-
-
-
-7.跨域请求有哪些方法
+4.实现这么一个页面效果，给父元素设置个透明度，但是不希望其子元素继承该透明度的效果，请给出你的方案。
 
 
 
 
-8.  var a = {n: 1}
+
+
+5.  var a = {n: 1}
      var b = a;
      a.x = a = {n: 2}
      console.log(a.x);
-     console.log(b.x)
+     console.log(b.x);
+     写出上面代码执行结果
 
 
-6.有一个升序数组，如[1,3,5,7,10,12,16]，另有一个值k，如k=15,找出数组中两个数相加等于K的所有组合。例子中结果为5+10=15,3+12=15。请编写代码。
+6.var length = 10;
+   function fn() {
+       console.log(this.length);
+   }
+   var obj = {
+      length: 5,
+      method: function(fn) {
+       fn();
+       arguments[0]();
+   }
+};
+obj.method(fn, 1);
+写出上面代码执行结果
+
+
+7.编写一个数组去重的方法
 
 
 
 
-答案：
-文件合并，文件压缩，使用CDN托管，使用缓存，其它
+
+
+
+
+
+
+
+
+
+
+8. 给document添加一个getElementsByAttribute(attr, value)方法，查找包含属性名为attr，值为value的所有dom节点。如调用document.getElementsByAttribute(‘demo’,’123’)将找到这个类似<div demo=“123”>这样的节点。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9.有一个升序数组，如[1,3,5,7,10,12,16]，另有一个值k，如k=15,找出数组中两个数相加等于K的所有组合。例子中结果为5+10=15,3+12=15。请编写代码。
+
+
+
+
+
+
+
+参考答案
+
+1.sessionStorage用于本地存储一个会话（session）中的数据，这些数据只有在同一个会话中的页面才能访问并且当会话结束后数据也随之销毁。因此sessionStorage不是一种持久化的本地存储，仅仅是会话级别的存储。而localStorage用于持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。
+web storage和cookie的区别
+Web Storage的概念和cookie相似，区别是它是为了更大容量存储设计的。Cookie的大小是受限的，并且每次你请求一个新的页面的时候Cookie都会被发送过去，这样无形中浪费了带宽，另外cookie还需要指定作用域，不可以跨域调用。
+除此之外，Web Storage拥有setItem,getItem,removeItem,clear等方法，不像cookie需要前端开发者自己封装setCookie，getCookie。但是Cookie也是不可以或缺的：Cookie的作用是与服务器进行交互，作为HTTP规范的一部分而存在 ，而Web Storage仅仅是为了在本地“存储”数据而生。
+
+2.特别注意两点：
+第一，如果是协议和端口造成的跨域问题“前台”是无能为力的，
+第二：在跨域问题上，域仅仅是通过“URL的首部”来识别而不会去尝试判断相同的ip地址对应着两个域或两个域是否在同一个ip上。
+“URL的首部”指window.location.protocol +window.location.host，也可以理解为“Domains, protocols and ports must match”。
+
+方法：1. document.domain+iframe的设置  
+          2. 动态创建scirpt,即用jsonp
+          3. 利用iframe和location.hash
+          4. window.name实现的跨域数据传输
+          5. 使用html5的window.postMessage
+
+3.Transform定义的只是普通的CSS3属性，普通到和width、height没太大区别，不同的是他比其它CSS属性更犀利，有了他我们可以实现变形、旋转、缩放、移位及透视等功能
+
+Transition，过渡，Transition作用是指定了某一个属性（如width、left、transform等）在两个值之间如何过渡，他包括transition-property、transition-duration、transition-timing-function、transition-delay等。
+
+Animation，动画。Animation也是通过指定某一个属性（如width、left、transform等）在两个值之间如何过渡来实现动画的，与Transition不同的是，Animation可以通过keyframe显式控制当前帧的属性值，而Transition只能隐式来进行（不能指定每帧的属性值），所以相对而言Animation的功能更加灵活。另外一个区别是Animation通过模拟属性值改变来实现动画，动画结束之后元素的属性没有变化；而Transition确实改变了元素的属性值，动画结束之后元素的属性发生了变化；
+
+4. 方法：1.rgba(0,0,0.5)
+	   2.使用透明图片作为背景(兼容性好)
+	   3.使用相对定位设置z-index
+
+5. undefined, [Object]
+
+6. 10，2
+
+7.Array.prototype.unique = function() {
+	var result = [], hash = {}, elem;
+	for(var i = 0; i < this.length; i++) {
+	     elem = this[i];
+                if(!hash[elem]) {
+ 		result.push(elem);
+		!hash[elem] = true;
+	      }
+	}
+	return result;
+   }
+
+8.var walk_the_DOM = function walk(node, func) {
+			func(node);
+			node = node.firstChild;
+			while(node) {
+				walk(node, func);
+				node = node.nextSibling;
+			}
+		} 
+		//根据attribute获取dom
+		document.getElementsByAttribute = function (attr, value) {
+			var result = [];
+
+			walk_the_DOM(document.body, function (node) {
+				var actual = node.nodeType === 1 && node.getAttribute(attr);
+				if(typeof actual === 'string' &&
+					(actual === value || typeof value !== 'string')) {
+					result.push(node);
+				}
+			});
+
+			return result;
+		}
+
+9.var arr = [1,3,5,7,10,12,16];
+   var k = 15, start = 0, end = arr.length - 1;
+   while(start !== end) {
+ 	if(arr[start] + arr[end] > k) {
+ 	    end--; 
+ 	} else if(arr[start] + arr[end] < k) {
+ 	    start++;
+ 	} else {
+ 	    console.log(arr[start] + '+' + arr[end] + '=' + k);
+ 		start++;
+ 	}
+ }
+	

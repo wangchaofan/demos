@@ -36,6 +36,18 @@
 			}
 		}
 		console.log(result.sort().join(' '));
+
+		Array.prototype.unique = function() {
+			var result = [], hash = {}, elem;
+			for(var i = 0; i < this.length; i++) {
+				elem = this[i];
+				if(!hash[elem]) {
+ 					result.push(elem);
+				    !hash[elem] = true;
+				}
+			}
+			return result;
+		}
 	</script>
 </body>
 </html>
